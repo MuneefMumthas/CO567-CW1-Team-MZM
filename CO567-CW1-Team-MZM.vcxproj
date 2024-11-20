@@ -130,6 +130,7 @@
     <ClCompile Include="CO567-CW1-Team-MZM.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="show.h" />
     <ClInclude Include="ticket.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
