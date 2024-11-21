@@ -53,7 +53,7 @@ void ticket::printTicket(string showName, string showDate, string showTime, int 
 {
 	system("CLS");
 
-	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ YOUR TICKETS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+	cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ YOUR TICKETS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
 
 	cout << "============================================================================" << endl;
 	cout << "================= The Bucks Centre for the Performing Arts =================" << endl;

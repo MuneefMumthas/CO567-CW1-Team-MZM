@@ -69,7 +69,7 @@ int showSeat::getNumSeats()
 {
 	system("CLS");
 
-	cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SELECT SEATS INTERACTIVELY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+	cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SELECT SEATS INTERACTIVELY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
 
 	do 
 	{

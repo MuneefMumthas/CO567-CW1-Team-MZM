@@ -45,7 +45,7 @@ void show::selectShow(string& showName, string& showDate)
 
 	system("CLS");
 
-	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SELECT AN UPCOMING SHOW ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+	cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SELECT AN UPCOMING SHOW ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
 
 	cout << "1. Star Wars: The Musical (20/05/2025)" << endl;
 	cout << "2. The Phantom of the Opera (21/05/2025)" << endl;

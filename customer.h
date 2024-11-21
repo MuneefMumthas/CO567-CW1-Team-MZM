@@ -47,8 +47,8 @@ void customer::getLogin()
 	string username; // in the real system, a set of usernames and passwords would be saved in a database file
 	string password; // in this prototype, any username and password will be accepted
 
-	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CUSTOMER LOGIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-	cout << "\n Welcome to the Bucks Centre for the Performing Arts ticket purchasing system!" << endl;
+	cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CUSTOMER LOGIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
+	cout << "\n Welcome to the Bucks Centre for the Performing Arts ticket purchasing system!\n" << endl;
 
 	cout << "                                Please Login                                " << endl;
 
