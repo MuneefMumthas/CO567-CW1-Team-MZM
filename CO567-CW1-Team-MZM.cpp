@@ -1,3 +1,6 @@
+// Main file for CO567-CW1-Team-MZM
+// Team MZM: Muneef Mumthas, Zaigham Khan, Mehanathan Nackshayan
+
 #include <iostream>
 #include <string>
 #include "ticket.h"
@@ -5,87 +8,83 @@
 #include "customer.h"
 #include "showSeat.h"
 
+using namespace std;
+
 int main()
 {
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	//Initial variable declarations
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Initial variable declarations
 
-	string a, b, c, d, e, f, g, h;
+    string a = "", b = "", c = "", d = "", e = "", f = "", g = "", h = "";
 
-	int d;
+    int numSeats;
+    double seatPrice;
 
-	double e;
+    char ch;
 
-	char ch, terminator;
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Create objects
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	// create objects
+    showSeat SEAT;
+    customer CUST;
+    show SHOW;
+    
 
-	showSeat SEAT;
-	customer CUST;
-	show SHOW;
-	ticket * TICK;
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Deals with customer login
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	//Deals with customer login
+    CUST.getLogin();
+    CUST.getProfileInfo(f, g, h);
 
-	CUST.getLogin();
-	CUST.getProfileInfo(f, g, h);
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Displays main menu, and allows customer to choose an option
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	//Displays main menu, and allows customer to choose option
+    system("CLS");
 
-	system("CLS");
+    cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MAIN MENU ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
+    cout << "1. Buy tickets for upcoming shows" << endl;
+    cout << "2. Log out\n" << endl;
+    cout << "Please enter a menu choice number: ";
+    cin.get(ch);
 
-	cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MAIN MENU ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
+    while (ch != '1' && ch != '2')
+    {
+        cin.clear();
+        cin.ignore(100, '\n'); // Ensures the buffer is completely empty
 
-	cout << "1. Buy tickets for upcoming shows" << endl;
-	cout << "2. Log out\n" << endl;
-	cout << "Please enter a menu choice number: ";
-	cin.get(ch);
+        cout << "Invalid input. Please enter a valid menu choice number: ";
+        cin.get(ch);
+    }
 
-	while (ch != '1' && ch != '2')
-	{
-		cin.clear();
-		cin.ignore(100, '\n'); // ensures the buffer is completely empty
+    if (ch == '2')
+    {
+        return EXIT_SUCCESS;
+    }
 
-		cout << "Invalid input. Please enter a valid menu choice number: ";
-		cin.get(ch);
-	}
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Deals with selecting a show
 
-	if (ch == '2')
-	{
-		return EXIT_SUCCESS;
-	}
+    do
+    {
+        SHOW.selectShow(a, b);
+        c = SHOW.selectTime();
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	// Deals with selecting a show
+        do
+        {
+            cout << "\nAre you happy with your choice? (Y = Yes, N = No): ";
+            cin.get(ch);
+        } while (ch != 'Y' && ch != 'y' && ch != 'N' && ch != 'n');
 
-	do
-	{
-		SHOW.selectShow(a, b);
-		c = SHOW.selectTime();
+        cin.ignore(100, '\n'); // Clears buffer
+    } while (ch == 'N' || ch == 'n');
 
-		do
-		{
-			cout << "\nAre you happy with your choice? (Y = Yes, N = No): ";
-			cin.get(ch);
-		}
-		while (ch != 'Y' && ch != 'y' && ch != 'N' && ch != 'n');
-		cin.get(terminator); //clears buffer
-	}
-	while (ch == 'N' || ch == 'n');
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Deals with selecting seats and calculating the price of seats
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	// Deals with selecting seat and calculating price of seats
+    SEAT.initialiseFloorPlan();
+    numSeats = SEAT.getNumSeats();
+    seatPrice = SEAT.getSeatSelection();
 
-	SEAT.initialiseFloorPlan();
-	d = SEAT.getNumSeats();
-	e = SEAT.getSeatSelection();
-
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	// Deals with discounts, payment and ticket generation
-	
-
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Deals with discounts, payment, and ticket generation
 }
-

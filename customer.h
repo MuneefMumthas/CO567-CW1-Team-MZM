@@ -9,74 +9,82 @@ using namespace std;
 
 class customer
 {
-	public:
-		customer();
-		~customer();
-		void getLogin();
-		void getProfileInfo(string &fName, string &sName, string &address);
-		void getPaymentInfo();
+public:
+    customer();
+    ~customer();
+    void getLogin();
+    void getProfileInfo(string& fName, string& sName, string& address);
+    void getPaymentInfo();
 
-	protected:
-		string fName;
-		string sName;
-		string address;
-
+protected:
+    string fName;
+    string sName;
+    string address;
 };
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// constructor
+// Constructor
 
 customer::customer()
 {
-	fName = "";
-	sName = "";
-	address = ""; //initialise fName, sName and address to empty strings
+    fName = "";
+    sName = "";
+    address = ""; // Initialise fName, sName, and address to empty strings
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// destructor
+// Destructor
+
 customer::~customer()
 {
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// customer logs in
+// Customer logs in
 
 void customer::getLogin()
 {
-	string username; // in the real system, a set of usernames and passwords would be saved in a database file
-	string password; // in this prototype, any username and password will be accepted
+    string username; // In the real system, a set of usernames and passwords would be saved in a database file
+    string password; // In this prototype, any username and password will be accepted
 
-	cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CUSTOMER LOGIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
-	cout << "\n Welcome to the Bucks Centre for the Performing Arts ticket purchasing system!\n" << endl;
+    cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CUSTOMER LOGIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
+    cout << "\n Welcome to the Bucks Centre for the Performing Arts ticket purchasing system!\n" << endl;
 
-	cout << "                                Please Login                                " << endl;
+    cout << "                                Please Login                                " << endl;
 
-	cout << "Enter Username: ";
-	getline(cin, username);
+    cout << "Enter Username: ";
+    getline(cin, username);
 
-	while (username.length() > 10)
-	{
-		cout << "Your username should be no more than 10 characters long." << endl;
-		cout << "Please re-enter your username: ";
-		getline(cin, username);
-	}
+    while (username.length() > 10)
+    {
+        cout << "Your username should be no more than 10 characters long." << endl;
+        cout << "Please re-enter your username: ";
+        getline(cin, username);
+    }
 
-	cout << "Enter Password: ";
-	getline(cin, password);
+    cout << "Enter Password: ";
+    getline(cin, password);
 
-	while (password.length() > 10)
-	{
-		cout << "Your password should be no more than 10 characters long." << endl;
-		cout << "Please re-enter your password: ";
-		getline(cin, password);
-	}
-	
+    while (password.length() > 10)
+    {
+        cout << "Your password should be no more than 10 characters long." << endl;
+        cout << "Please re-enter your password: ";
+        getline(cin, password);
+    }
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// customer enters profile information
+// Customer enters profile information
+
 void customer::getProfileInfo(string& fName, string& sName, string& address)
 {
+    // Placeholder function to be implemented with profile input
+}
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Customer enters payment information
+
+void customer::getPaymentInfo()
+{
+	// Placeholder function to be implemented with payment input
 }

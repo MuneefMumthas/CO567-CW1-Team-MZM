@@ -1,4 +1,4 @@
-//ticket.h
+// ticket.h
 
 #include <iostream>
 #include <string>
@@ -8,66 +8,63 @@ using namespace std;
 
 class ticket
 {
-	public:
-		ticket();
-		~ticket();
-		void setPrice(double price);
-		void printTicket(string showName, string showDate, string showTime, int numSeats, string fName, string sName, string address);
-		virtual double cost() = 0; //virtual function used by derived classes
+public:
+    ticket();
+    ~ticket();
+    void setPrice(double price);
+    void printTicket(string showName, string showDate, string showTime, int numSeats, string fName, string sName, string address);
+    virtual double cost() = 0; // Virtual function used by derived classes
 
-	protected:
-		double totalCost;
-
+protected:
+    double totalCost;
 };
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// constructor
+// Constructor
 
 ticket::ticket()
 {
-	totalCost = 0; //initialise totalCost to 0
+    totalCost = 0; // Initialise totalCost to 0
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// destructor
+// Destructor
 
 ticket::~ticket()
 {
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//calculate discount cost from total price
+// Set the price for the ticket
 
 void ticket::setPrice(double price)
 {
-	totalCost = price;
-	cout << "\nThe total price of your tickets (including any applicable discount) is"
-		 << (char)156 << this->cost() << ".\n" << endl;
-	system("PAUSE");
+    totalCost = price;
+    cout << "\nThe total price of your tickets (including any applicable discount) is "
+        << (char)156 << this->cost() << ".\n" << endl;
+    system("PAUSE");
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// prints ticket using data from derived classes
+// Print the ticket using data from derived classes
 
 void ticket::printTicket(string showName, string showDate, string showTime, int numSeats, string fName, string sName, string address)
 {
-	system("CLS");
+    system("CLS");
 
-	cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ YOUR TICKETS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
+    cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ YOUR TICKETS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
+    cout << "============================================================================" << endl;
+    cout << "================= The Bucks Centre for the Performing Arts =================" << endl;
+    cout << "============================= Enjoy the show! ==============================" << endl;
 
-	cout << "============================================================================" << endl;
-	cout << "================= The Bucks Centre for the Performing Arts =================" << endl;
-	cout << "============================= Enjoy the show! ==============================" << endl;
-	
-	cout << "Show: " << showName << endl;
-	cout << "Date: " << showDate << endl;
-	cout << "Time: " << showTime << endl;
-	cout << "============================================================================" << endl;
-	cout << "Number of seats: " << numSeats << endl;
-	cout << "Total cost: " << (char)156 << this -> cost() << endl;
-	cout << "Ticket Purchaser: " << fName << " " << sName << endl;
-	cout << "Postal Address: " << address << endl;
-	cout << "============================================================================" << endl;
-	cout << "============================================================================\n\n" << endl;
-
+    cout << "Show: " << showName << endl;
+    cout << "Date: " << showDate << endl;
+    cout << "Time: " << showTime << endl;
+    cout << "============================================================================" << endl;
+    cout << "Number of seats: " << numSeats << endl;
+    cout << "Total cost: " << (char)156 << this->cost() << endl;
+    cout << "Ticket Purchaser: " << fName << " " << sName << endl;
+    cout << "Postal Address: " << address << endl;
+    cout << "============================================================================" << endl;
+    cout << "============================================================================\n\n" << endl;
 }
