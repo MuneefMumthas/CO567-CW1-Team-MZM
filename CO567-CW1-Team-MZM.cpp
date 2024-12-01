@@ -73,9 +73,9 @@ int main()
         {
             cout << "\nAre you happy with your choice? (Y = Yes, N = No): ";
             cin.get(ch);
+            cin.ignore(100, '\n');
         } while (ch != 'Y' && ch != 'y' && ch != 'N' && ch != 'n');
 
-        cin.ignore(100, '\n'); // Clears buffer
     } while (ch == 'N' || ch == 'n');
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

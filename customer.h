@@ -5,6 +5,7 @@
 #include <string>
 #include <Windows.h>
 
+
 using namespace std;
 
 class customer
@@ -78,7 +79,82 @@ void customer::getLogin()
 
 void customer::getProfileInfo(string& fName, string& sName, string& address)
 {
-    // Placeholder function to be implemented with profile input
+    cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ENTER YOUR DETAILS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
+
+    // prompt for first name
+    while (true) {
+        cout << "Enter your first name: ";
+        getline(cin, fName);
+
+		if (fName.empty()) { // Checking if first name is empty
+            cout << "Invalid input. Please enter your first name using only letters." << endl;
+        }
+        else {
+            bool valid = true;
+            for (char c : fName) {
+				if (!isalpha(c)) { // Checking if character is a letter for validation
+                    valid = false;
+                    break;
+                }
+            }
+            if (valid) {
+                break;
+            }
+            else {
+                cout << "Invalid input. Please enter your first name using only letters." << endl;
+            }
+        }
+    }
+
+    // prompt for surname
+    while (true) {
+        cout << "Enter your surname: ";
+        getline(cin, sName);
+
+		if (sName.empty()) { // Checking if surname is empty
+            cout << "Invalid input. Please enter your surname using only letters." << endl;
+        }
+        else {
+            bool valid = true;
+            for (char c : sName) {
+				if (!isalpha(c)) { // Checking if character is a letter for validation
+                    valid = false;
+                    break;
+                }
+            }
+            if (valid) {
+                break;
+            }
+            else {
+                cout << "Invalid input. Please enter your surname using only letters." << endl;
+            }
+        }
+    }
+
+    // prompt for address
+    while (true) {
+        cout << "Enter your address (letters and numbers only): ";
+        getline(cin, address);
+
+		if (address.empty()) { // Checking if address is empty
+            cout << "Invalid input. Please enter your address using only letters and numbers." << endl;
+        }
+        else {
+            bool valid = true;
+            for (char c : address) {
+				if (!isalnum(c)) { // Checking if character is a letter or number for validation
+                    valid = false;
+                    break;
+                }
+            }
+            if (valid) {
+                break;
+            }
+            else {
+                cout << "Invalid input. Please enter your address using only letters and numbers." << endl;
+            }
+        }
+    }
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

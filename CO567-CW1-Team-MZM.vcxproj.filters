@@ -20,11 +20,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ticket.h">
-      <Filter>Resource Files</Filter>
+    <ClInclude Include="customer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="showSeat.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="show.h">
-      <Filter>Resource Files</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ticket.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

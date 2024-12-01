@@ -70,22 +70,53 @@ void showSeat::initialiseFloorPlan()
 
 int showSeat::getNumSeats()
 {
-    //system("CLS");
-    cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SELECT SEATS INTERACTIVELY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
 
-    do
-    {
+    cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SELECT SEATS INTERACTIVELY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
 
-        cin.clear();
-        cin.ignore(100, '\n');
-        cout << "How many tickets would you like to purchase? (Max. 8): "; // Prompt to enter number of tickets
-        cin >> numSeats;
-        cout << endl;
-    } while (numSeats < 1 || numSeats > 8); // Ensures user enters a valid number of tickets between 1 and 8
+    displayFloorPlan(7, 6);
+    cout << "\n" << endl;
 
-	displayFloorPlan(7, 6); // Displays theatre floor plan
+    cout << " How many tickets would you like to purchase (Max. 8)?: ";
 
-    return numSeats; // Returns number of tickets
+
+    string input;
+    getline(cin, input);
+
+    while (true) {
+        bool valid = true;
+
+        if (input.empty()) {
+            valid = false;
+        }
+        else {
+            for (char c : input) {
+                if (!isdigit(c)) {
+                    valid = false;
+                    break;
+                }
+            }
+
+            if (valid) {
+                numSeats = stoi(input);
+                if (numSeats < 1 || numSeats > 8) {
+                    valid = false;
+                }
+            }
+        }
+
+        if (!valid) {
+            cout << "Invalid input. Please enter a number between 1 and 8: ";
+            getline(cin, input);
+        }
+        else {
+            break; // Exit the loop if input is valid
+        }
+    }
+
+    cout << "\n" << endl;
+    displayFloorPlan(7, 6);
+
+    return numSeats;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -116,28 +147,76 @@ double showSeat::getSeatSelection()
 
     for (int i = 0; i < numSeats; i++)
     {
-        do
+        while (true)
         {
+            string inputRow, inputCol;
+
+            // prompt for row
             cout << "Enter the row (1-7) for seat " << i + 1 << ": ";
-            cin >> row;
+            getline(cin, inputRow);
+
+			// prompt for column
             cout << "Enter the column (1-6) for seat " << i + 1 << ": ";
-            cin >> col;
+            getline(cin, inputCol);
 
-            row--; // Adjust for 0-based index
-            col--; // Adjust for 0-based index
+            bool validRow = true, validCol = true;
 
-            if (row < 0 || row >= 7 || col < 0 || col >= 6 || floorPlan[row][col] != 'A')
-            {
-                cout << "Invalid selection or seat already taken. Please try again." << endl;
+            // validating row input
+            if (inputRow.empty()) {
+                validRow = false;
             }
-            else
-            {
-                floorPlan[row][col] = 'X'; // Mark seat as taken
-                calculatePrice(totalPrice); // Calculate price for the selected seat
-				displayFloorPlan(7, 6); // Display updated floor plan
-                break;
+            else {
+                for (char c : inputRow) {
+                    if (!isdigit(c)) {
+                        validRow = false;
+                        break;
+                    }
+                }
+                if (validRow) {
+                    row = stoi(inputRow);
+                    if (row < 1 || row > 7) {
+                        validRow = false;
+                    }
+                }
             }
-        } while (true);
+
+			// validating column input
+            if (inputCol.empty()) {
+                validCol = false;
+            }
+            else {
+                for (char c : inputCol) {
+                    if (!isdigit(c)) {
+                        validCol = false;
+                        break;
+                    }
+                }
+                if (validCol) {
+                    col = stoi(inputCol);
+                    if (col < 1 || col > 6) {
+                        validCol = false;
+                    }
+                }
+            }
+
+            if (validRow && validCol) {
+                row--;
+                col--; 
+
+                if (floorPlan[row][col] != 'A') {
+                    cout << "Seat already taken. Please try again." << endl;
+                }
+                else {
+                    floorPlan[row][col] = 'X'; // Marking seat as taken
+                    calculatePrice(totalPrice);
+                    displayFloorPlan(7, 6);
+                    break; 
+                }
+            }
+            else {
+                cout << "Invalid input. Please enter numbers between 1-7 for row and 1-6 for column." << endl;
+            }
+        }
     }
 
     return totalPrice;
