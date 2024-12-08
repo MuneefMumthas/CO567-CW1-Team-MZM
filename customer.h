@@ -48,29 +48,61 @@ void customer::getLogin()
     string username; // In the real system, a set of usernames and passwords would be saved in a database file
     string password; // In this prototype, any username and password will be accepted
 
+
+
     cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CUSTOMER LOGIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
     cout << "\n Welcome to the Bucks Centre for the Performing Arts ticket purchasing system!\n" << endl;
 
-    cout << "                                Please Login                                " << endl;
+    cout << "                         Please Login                         " << endl;
 
-    cout << "Enter Username: ";
-    getline(cin, username);
-
-    while (username.length() > 10)
-    {
-        cout << "Your username should be no more than 10 characters long." << endl;
-        cout << "Please re-enter your username: ";
+    // Validate username (letters and numbers only, no spaces, not empty)
+    while (true) {
+        cout << "Enter Username: ";
         getline(cin, username);
+
+        if (username.empty()) {
+            cout << "Invalid input. Please enter a username." << endl;
+        }
+        else {
+            bool valid = true;
+            for (char c : username) {
+                if (!isalnum(c)) {
+                    valid = false;
+                    break;
+                }
+            }
+            if (valid) {
+                break;
+            }
+            else {
+                cout << "Invalid input. Please enter your username using only letters and numbers." << endl;
+            }
+        }
     }
 
-    cout << "Enter Password: ";
-    getline(cin, password);
-
-    while (password.length() > 10)
-    {
-        cout << "Your password should be no more than 10 characters long." << endl;
-        cout << "Please re-enter your password: ";
+    // Validate password (letters and numbers only, no spaces, not empty) - Similar logic to username
+    while (true) {
+        cout << "Enter Password: ";
         getline(cin, password);
+
+        if (password.empty()) {
+            cout << "Invalid input. Please enter a password." << endl;
+        }
+        else {
+            bool valid = true;
+            for (char c : password) {
+                if (!isalnum(c)) {
+                    valid = false;
+                    break;
+                }
+            }
+            if (valid) {
+                break;
+            }
+            else {
+                cout << "Invalid input. Please enter your password using only letters and numbers." << endl;
+            }
+        }
     }
 }
 
