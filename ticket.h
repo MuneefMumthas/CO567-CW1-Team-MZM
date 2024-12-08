@@ -11,12 +11,13 @@ class ticket
 public:
     ticket();
     ~ticket();
-    void setPrice(double price);
+    void setPrice(int numSeats);
     void printTicket(string showName, string showDate, string showTime, int numSeats, string fName, string sName, string address);
-    virtual double cost() = 0; // Virtual function used by derived classes
+    double cost();
 
 protected:
     double totalCost;
+    double pricePerTicket;
 };
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -25,6 +26,7 @@ protected:
 ticket::ticket()
 {
     totalCost = 0; // Initialise totalCost to 0
+	pricePerTicket = 10.0; // price for one ticket
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -37,9 +39,9 @@ ticket::~ticket()
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Set the price for the ticket
 
-void ticket::setPrice(double price)
+void ticket::setPrice(int numSeats) // Takes numSeats as input
 {
-    totalCost = price;
+    totalCost = pricePerTicket * numSeats; // Calculate total cost
     cout << "\nThe total price of your tickets (including any applicable discount) is "
         << (char)156 << this->cost() << ".\n" << endl;
     system("PAUSE");
@@ -67,4 +69,8 @@ void ticket::printTicket(string showName, string showDate, string showTime, int 
     cout << "Postal Address: " << address << endl;
     cout << "============================================================================" << endl;
     cout << "============================================================================\n\n" << endl;
+}
+
+double ticket::cost() {
+    return totalCost;
 }

@@ -115,6 +115,7 @@ int showSeat::getNumSeats()
 
     cout << "\n" << endl;
     displayFloorPlan(7, 6);
+	cout << "\n" << endl;
 
     return numSeats;
 }
@@ -209,7 +210,9 @@ double showSeat::getSeatSelection()
                 else {
                     floorPlan[row][col] = 'X'; // Marking seat as taken
                     calculatePrice(totalPrice);
+					cout << "\n" << endl;
                     displayFloorPlan(7, 6);
+                    cout << "\n" << endl;
                     break; 
                 }
             }
@@ -222,13 +225,16 @@ double showSeat::getSeatSelection()
     return totalPrice;
 }
 
-
-
-
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 // Calculates the price of the seats
 
+
+
 void showSeat::calculatePrice(double& price)
+
 {
-	// Placeholder for the price calculation
+
+    // Placeholder for the price calculation
+
 }

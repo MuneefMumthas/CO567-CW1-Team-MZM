@@ -142,7 +142,7 @@ void customer::getProfileInfo(string& fName, string& sName, string& address)
         else {
             bool valid = true;
             for (char c : address) {
-				if (!isalnum(c)) { // Checking if character is a letter or number for validation
+				if (!isalnum(c) && !isspace(c)) { // Checking if character is a letter or number for validation
                     valid = false;
                     break;
                 }

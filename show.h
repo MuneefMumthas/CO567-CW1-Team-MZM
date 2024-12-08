@@ -52,9 +52,6 @@ void show::selectShow(string& showName, string& showDate)
     cout << "2. The Phantom of the Opera (21/05/2025)" << endl;
     cout << "3. The Lion King (22/05/2025)" << endl;
 
-    cin.clear();
-    cin.ignore(100, '\n'); // Ensures the buffer is completely empty (if user has previously input a long string)
-
     cout << "\nPlease select a show by entering the corresponding number: ";
     cin.get(ch);
 
@@ -89,10 +86,41 @@ void show::selectShow(string& showName, string& showDate)
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// Customer selects 1pm or 7pm showtime
+// show times
 
 string show::selectTime()
 {
-    // Placeholder function for selecting show time. You can implement logic here.
-    return showTime;
+    string input;
+
+    cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SELECT SHOW TIME ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
+    cout << "1. 11.30 am" << endl;
+    cout << "2. 5.30 pm" << endl;
+    cout << "3. 7.30 pm" << endl;
+    cout << "4. 9.30 pm" << endl;
+    cout << "5. 10.00 pm" << endl;
+
+    while (true) {
+        cout << "\nPlease select a show time by entering the corresponding number: ";
+        getline(cin, input);
+
+        if (input.empty()) {
+            cout << "Invalid input. Please enter a number." << endl;
+        }
+        else if (input.length() == 1 && isdigit(input[0]) && input[0] >= '1' && input[0] <= '5') {
+            // Valid input: single digit between 1 and 5
+            break;
+        }
+        else {
+            cout << "Invalid input. Please enter a valid number between 1 and 5." << endl;
+        }
+    }
+
+    switch (input[0]) { 
+    case '1': return "11.30 am";
+    case '2': return "5.30 pm";
+    case '3': return "7.30 pm";
+    case '4': return "9.30 pm";
+    case '5': return "10.00 pm";
+    default:  return "";
+    }
 }
