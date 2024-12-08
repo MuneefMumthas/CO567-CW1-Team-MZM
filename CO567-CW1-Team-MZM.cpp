@@ -98,6 +98,67 @@ int main()
 
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // Deals with discounts, payment, and ticket generation
+        // Payment prompt with validation
+        string bankUsername, bankPassword;
+        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PAYMENT DETAILS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
+        cout << "Enter your bank username: ";
+
+        while (true) {
+            
+            getline(cin, bankUsername);
+
+            if (bankUsername.empty()) {
+                cout << "Invalid input. Please enter a username." << endl;
+            }
+            else {
+                bool valid = true;
+                for (char c : bankUsername) {
+                    if (!isalnum(c)) {
+                        valid = false;
+                        break;
+                    }
+                }
+                if (valid) {
+                    break;
+                }
+                else {
+                    cout << "Invalid input. Please enter your username using only letters and numbers." << endl;
+                }
+            }
+        }
+
+        cout << "Enter your bank password: ";
+
+        // Validate bank password
+        while (true) {
+            
+            getline(cin, bankPassword);
+
+            if (bankPassword.empty()) {
+                cout << "Invalid input. Please enter a password." << endl;
+            }
+            else {
+                bool valid = true;
+                for (char c : bankPassword) {
+                    if (!isalnum(c)) {
+                        valid = false;
+                        break;
+                    }
+                }
+                if (valid) {
+                    break;
+                }
+                else {
+                    cout << "Invalid input. Please enter your password using only letters and numbers." << endl;
+                }
+            }
+        }
+
+        // Processing details
+        cout << "\nProcessing payment...\n";
+        cout << "\n" << endl;
+        cout << "Payment successful!\n";
+
 
         ticket myTicket;
         myTicket.setPrice(numSeats);
