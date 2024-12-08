@@ -42,8 +42,7 @@ show::~show()
 
 void show::selectShow(string& showName, string& showDate)
 {
-    char ch;
-    char terminator;
+    string input;
 
     system("CLS");
 
@@ -51,20 +50,25 @@ void show::selectShow(string& showName, string& showDate)
     cout << "1. Star Wars: The Musical (20/05/2025)" << endl;
     cout << "2. The Phantom of the Opera (21/05/2025)" << endl;
     cout << "3. The Lion King (22/05/2025)" << endl;
+    cout << "4. Leo (23/05/2025)" << endl;
+    cout << "5. Mission Impossible: The Final Reckoning (25/05/2025)" << endl;
 
-    cout << "\nPlease select a show by entering the corresponding number: ";
-    cin.get(ch);
+    while (true) {
+        cout << "\nPlease select a show by entering the corresponding number: ";
+        getline(cin, input);
 
-    while (ch != '1' && ch != '2' && ch != '3')
-    {
-        cin.clear();
-        cin.ignore(100, '\n');
-        cout << "Invalid input. Please enter a valid number: ";
-        cin.get(ch);
+        if (input.empty()) {
+            cout << "Invalid input. Please enter a number." << endl;
+        }
+        else if (input.length() == 1 && isdigit(input[0]) && input[0] >= '1' && input[0] <= '5') {
+            break;
+        }
+        else {
+            cout << "Invalid input. Please enter a valid number between 1 and 5." << endl;
+        }
     }
 
-    switch (ch)
-    {
+    switch (input[0]) {
     case '1':
         showName = "Star Wars: The Musical";
         showDate = "20/05/2025";
@@ -77,12 +81,18 @@ void show::selectShow(string& showName, string& showDate)
         showName = "The Lion King";
         showDate = "22/05/2025";
         break;
+    case '4':
+        showName = "Leo";
+        showDate = "23/05/2025";
+        break;
+    case '5':
+        showName = "Mission Impossible: The Final Reckoning";
+        showDate = "25/05/2025";
+        break;
     }
 
     this->showName = showName;
-    this->showDate = showDate; // Enters reference variables into class variables
-
-    cin.get(terminator); // Clears the buffer
+    this->showDate = showDate;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
