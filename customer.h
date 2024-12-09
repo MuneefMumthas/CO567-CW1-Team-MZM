@@ -63,7 +63,13 @@ void customer::getLogin()
         if (username.empty()) {
             cout << "Invalid input. Please enter a username." << endl;
         }
-        else {
+        else if (username.size() > 10) {
+            cout << "Invalid input. Please enter a username with 10 or less than 10 characters." << endl;
+        }
+        else if (username.size() <= 3) {
+            cout << "Invalid input. Please enter a username with atleast 4 characters." << endl;
+		}
+        else  {
             bool valid = true;
             for (char c : username) {
                 if (!isalnum(c)) {
@@ -88,10 +94,16 @@ void customer::getLogin()
         if (password.empty()) {
             cout << "Invalid input. Please enter a password." << endl;
         }
+        else if (password.size() <= 6) {
+            cout << "Invalid input. Please enter a password with atleast 7 characters." << endl;
+        }
+        else if (password.size() > 20) {
+            cout << "Invalid input. Please enter a password with 20 or less than 20 characters." << endl;
+        }
         else {
             bool valid = true;
             for (char c : password) {
-                if (!isalnum(c)) {
+                if (isspace(c)) {
                     valid = false;
                     break;
                 }
@@ -100,7 +112,7 @@ void customer::getLogin()
                 break;
             }
             else {
-                cout << "Invalid input. Please enter your password using only letters and numbers." << endl;
+                cout << "Invalid input. Please enter your password using only letters, numbers and symbols." << endl;
             }
         }
     }
@@ -121,6 +133,12 @@ void customer::getProfileInfo(string& fName, string& sName, string& address)
 		if (fName.empty()) { // Checking if first name is empty
             cout << "Invalid input. Please enter your first name using only letters." << endl;
         }
+        else if (fName.size() <= 2) {
+            cout << "Invalid input. Please enter a first name with atleast 3 characters." << endl;
+		}
+		else if (fName.size() > 20) {
+			cout << "Invalid input. Please enter a first name with 20 or less than 20 characters." << endl;
+		}
         else {
             bool valid = true;
             for (char c : fName) {
@@ -146,6 +164,12 @@ void customer::getProfileInfo(string& fName, string& sName, string& address)
 		if (sName.empty()) { // Checking if surname is empty
             cout << "Invalid input. Please enter your surname using only letters." << endl;
         }
+		else if (sName.size() <= 2) {
+			cout << "Invalid input. Please enter a surname with atleast 3 characters." << endl;
+		}
+        else if (sName.size() > 20) {
+            cout << "Invalid input. Please enter a surname with 20 or less than 20 characters." << endl;
+        }
         else {
             bool valid = true;
             for (char c : sName) {
@@ -165,11 +189,14 @@ void customer::getProfileInfo(string& fName, string& sName, string& address)
 
     // prompt for address
     while (true) {
-        cout << "Enter your address (letters and numbers only): ";
+        cout << "Enter your address: ";
         getline(cin, address);
 
 		if (address.empty()) { // Checking if address is empty
             cout << "Invalid input. Please enter your address using only letters and numbers." << endl;
+        }
+        else if (address.size() <= 4) {
+            cout << "Invalid input. Please enter a address with atleast 5 characters." << endl;
         }
         else {
             bool valid = true;
