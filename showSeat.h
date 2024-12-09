@@ -73,7 +73,6 @@ int showSeat::getNumSeats()
 
     cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SELECT SEATS INTERACTIVELY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
 
-    displayFloorPlan(7, 6);
     cout << "\n" << endl;
 
     cout << " How many tickets would you like to purchase (Max. 8)?: ";

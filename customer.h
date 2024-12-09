@@ -66,8 +66,8 @@ void customer::getLogin()
         else if (username.size() > 10) {
             cout << "Invalid input. Please enter a username with 10 or less than 10 characters." << endl;
         }
-        else if (username.size() <= 3) {
-            cout << "Invalid input. Please enter a username with atleast 4 characters." << endl;
+        else if (username.size() <= 2) {
+            cout << "Invalid input. Please enter a username with atleast 3 characters." << endl;
 		}
         else  {
             bool valid = true;

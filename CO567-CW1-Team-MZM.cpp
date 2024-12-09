@@ -95,6 +95,9 @@ int main()
         SEAT.initialiseFloorPlan();
         numSeats = SEAT.getNumSeats();
         seatPrice = SEAT.getSeatSelection();
+        ticket myTicket;
+        myTicket.setPrice(numSeats);
+        system("CLS");
 
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // Deals with discounts, payment, and ticket generation
@@ -108,7 +111,10 @@ int main()
             getline(cin, bankUsername);
 
             if (bankUsername.empty()) {
-                cout << "Invalid input. Please enter a username." << endl;
+                cout << "Invalid input. Please enter a bank username." << endl;
+            }
+            else if (bankUsername.size() <= 2) {
+                cout << "Invalid input. Please enter a bank username with atleast 3 characters." << endl;
             }
             else {
                 bool valid = true;
@@ -122,7 +128,7 @@ int main()
                     break;
                 }
                 else {
-                    cout << "Invalid input. Please enter your username using only letters and numbers." << endl;
+                    cout << "Invalid input. Please enter your bank username using only letters and numbers." << endl;
                 }
             }
         }
@@ -135,7 +141,10 @@ int main()
             getline(cin, bankPassword);
 
             if (bankPassword.empty()) {
-                cout << "Invalid input. Please enter a password." << endl;
+                cout << "Invalid input. Please enter a bank password." << endl;
+            }
+            else if (bankPassword.size() <= 6) {
+                cout << "Invalid input. Please enter a bank password with atleast 7 characters." << endl;
             }
             else {
                 bool valid = true;
@@ -149,7 +158,7 @@ int main()
                     break;
                 }
                 else {
-                    cout << "Invalid input. Please enter your password using only letters and numbers." << endl;
+                    cout << "Invalid input. Please enter your bank password using only letters and numbers." << endl;
                 }
             }
         }
@@ -158,10 +167,9 @@ int main()
         cout << "\nProcessing payment...\n";
         cout << "\n" << endl;
         cout << "Payment successful!\n";
+        system("PAUSE");
 
-
-        ticket myTicket;
-        myTicket.setPrice(numSeats);
+        
         myTicket.printTicket(a, b, c, numSeats, f, g, h);
 
         string logoutChoice;
