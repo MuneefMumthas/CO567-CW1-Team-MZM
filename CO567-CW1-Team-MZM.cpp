@@ -149,7 +149,7 @@ int main()
             else {
                 bool valid = true;
                 for (char c : bankPassword) {
-                    if (!isalnum(c)) {
+                    if (isspace(c)) {
                         valid = false;
                         break;
                     }
@@ -158,7 +158,7 @@ int main()
                     break;
                 }
                 else {
-                    cout << "Invalid input. Please enter your bank password using only letters and numbers." << endl;
+                    cout << "Invalid input. Please enter your bank password using only letters, numbers and symbols." << endl;
                 }
             }
         }
